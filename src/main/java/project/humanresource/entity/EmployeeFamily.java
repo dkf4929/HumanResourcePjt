@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Getter
 @Entity
 @ToString
-public class EmpFamily extends BaseEntity {
+@NoArgsConstructor
+public class EmployeeFamily extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "emp_fam_id")
@@ -23,14 +24,11 @@ public class EmpFamily extends BaseEntity {
     private FamilyInfo familyInfo;
 
     @Builder
-    public EmpFamily(FamilyInfo familyInfo) {
+    public EmployeeFamily(FamilyInfo familyInfo) {
         this.familyInfo = familyInfo;
     }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public EmpFamily() {
     }
 }
