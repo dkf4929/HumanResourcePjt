@@ -8,6 +8,9 @@ import java.time.LocalDateTime;
 
 @Embeddable
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FamilyInfo {
     private String famName;
     private LocalDate famBirthDate;
@@ -15,15 +18,4 @@ public class FamilyInfo {
     private LocalDate famStaDate;
     private LocalDate famEndDate;
 
-    public FamilyInfo() {
-    }
-
-    @Builder
-    public FamilyInfo(String famName, LocalDate famBirthDate, String famRel, LocalDate famStaDate, LocalDate famEndDate) {
-        this.famName = famName;
-        this.famBirthDate = famBirthDate;
-        this.famRel = famRel;
-        this.famStaDate = famStaDate;
-        this.famEndDate = famEndDate;
-    }
 }

@@ -1,9 +1,6 @@
 package project.humanresource.entity;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import project.humanresource.entitybase.BaseEntity;
@@ -13,7 +10,9 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @SequenceGenerator(
         name = "ORG_GENERATOR",
         sequenceName = "ORGANIZATION_SEQUENCES",
@@ -31,13 +30,4 @@ public class Organization extends BaseEntity {
     private Long superOrgId;
     private LocalDate orgCreateDate;
     private LocalDate orgEndDate;
-
-    @Builder
-    public Organization(String orgCd, String orgNm, Long superOrgId, LocalDate orgCreateDate, LocalDate orgEndDate) {
-        this.orgCd = orgCd;
-        this.orgNm = orgNm;
-        this.superOrgId = superOrgId;
-        this.orgCreateDate = orgCreateDate;
-        this.orgEndDate = orgEndDate;
-    }
 }
